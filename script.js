@@ -87,4 +87,9 @@
     reason.style.transitionDelay = (i * 0.08) + 's';
   });
 
+  const gitMiniCards = document.querySelectorAll('.git-mini-card.reveal');
+  gitMiniCards.forEach(function (card, i) {
+    card.style.transitionDelay = (i * 0.08) + 's';
+  });
+
 })();
