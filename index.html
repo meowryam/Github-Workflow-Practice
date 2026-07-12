@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GitPath — Master Git Without the Confusion</title>
+  <meta name="description" content="A beautifully crafted guide to Git, GitHub, branches, pull requests, merge conflicts, and modern developer workflows." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ============ NAVBAR ============ -->
+  <header class="navbar" id="navbar">
+    <div class="navbar-inner">
+      <a href="#top" class="logo">
+        <span class="logo-mark" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <circle cx="5" cy="4" r="2.4" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="5" cy="16" r="2.4" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="15" cy="10" r="2.4" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M5 6.4V13.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M5 8.5C5 10 6 10.6 7.5 10.6H12.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </span>
+        GitPath
+      </a>
+
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#top">Home</a>
+        <a href="#features">Guides</a>
+        <a href="#workflow">Workflow</a>
+        <a href="#why">GitHub</a>
+        <a href="#footer">About</a>
+      </nav>
+
+      <div class="navbar-actions">
+        <a href="#" class="btn btn-primary btn-small">Get Started</a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#top">Home</a>
+      <a href="#features">Guides</a>
+      <a href="#workflow">Workflow</a>
+      <a href="#why">GitHub</a>
+      <a href="#footer">About</a>
+      <a href="#" class="btn btn-primary">Get Started</a>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="hero-graph-bg" aria-hidden="true" id="heroGraph"></div>
+
+      <div class="container hero-inner">
+        <div class="hero-content reveal">
+          <p class="eyebrow">Version control, actually understood</p>
+          <h1 class="hero-heading">
+            Master Git<br />
+            <span class="text-muted-heading">Without the Confusion.</span>
+          </h1>
+          <p class="hero-sub">
+            Learn Git through real developer workflows including branches, pull requests, merge conflicts, issues, and GitHub Actions.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#workflow" class="btn btn-primary">Start Learning</a>
+            <a href="#why" class="btn btn-secondary">Explore GitHub</a>
+          </div>
+
+          <ul class="hero-badges">
+            <li><span class="badge-check">✓</span> Beginner Friendly</li>
+            <li><span class="badge-check">✓</span> Visual Learning</li>
+            <li><span class="badge-check">✓</span> Real Git Workflow</li>
+          </ul>
+        </div>
+
+        <div class="hero-visual reveal" aria-hidden="true">
+          <div class="workspace-illustration">
+
+            <!-- Terminal card -->
+            <div class="float-card terminal-card" data-depth="1">
+              <div class="terminal-head">
+                <span class="dot dot-a"></span>
+                <span class="dot dot-b"></span>
+                <span class="dot dot-c"></span>
+                <span class="terminal-title">main — zsh</span>
+              </div>
+              <div class="terminal-body">
+                <p><span class="prompt">$</span> git checkout -b feature/auth</p>
+                <p class="line-dim">Switched to a new branch <span class="hl">'feature/auth'</span></p>
+                <p><span class="prompt">$</span> git commit -m "add login flow"</p>
+                <p class="line-dim">[feature/auth <span class="hl-alt">a1c9f2e</span>] add login flow</p>
+                <p><span class="prompt">$</span> <span class="cursor-blink">▍</span></p>
+              </div>
+            </div>
+
+            <!-- Branch node card -->
+            <div class="float-card branch-card" data-depth="2">
+              <svg width="100%" height="86" viewBox="0 0 220 86" fill="none">
+                <path d="M20 68 C 20 40, 20 40, 60 40" stroke="rgba(255,255,255,0.14)" stroke-width="2" fill="none"/>
+                <path d="M20 68 L20 20" stroke="var(--accent-secondary)" stroke-width="2" fill="none"/>
+                <path d="M20 20 C 20 8, 20 8, 60 8" stroke="var(--highlight)" stroke-width="2" fill="none"/>
+                <circle cx="20" cy="68" r="5" fill="var(--bg-secondary)" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+                <circle cx="20" cy="20" r="5" fill="var(--accent-secondary)"/>
+                <circle cx="60" cy="8" r="5" fill="var(--highlight)"/>
+                <circle cx="60" cy="40" r="5" fill="rgba(255,255,255,0.3)"/>
+                <text x="72" y="12" fill="var(--text-secondary)" font-size="10" font-family="JetBrains Mono, monospace">feature/ui</text>
+                <text x="72" y="44" fill="var(--text-secondary)" font-size="10" font-family="JetBrains Mono, monospace">develop</text>
+              </svg>
+            </div>
+
+            <!-- PR chip -->
+            <div class="float-card pr-card" data-depth="3">
+              <span class="pr-icon">
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                  <circle cx="4" cy="3" r="1.6" stroke="currentColor" stroke-width="1.3"/>
+                  <circle cx="4" cy="13" r="1.6" stroke="currentColor" stroke-width="1.3"/>
+                  <circle cx="12" cy="6.5" r="1.6" stroke="currentColor" stroke-width="1.3"/>
+                  <path d="M4 4.6V11.4" stroke="currentColor" stroke-width="1.3"/>
+                  <path d="M4 7C4 8.5 5 8.9 6.2 8.9H10.4" stroke="currentColor" stroke-width="1.3"/>
+                </svg>
+              </span>
+              <div>
+                <p class="pr-title">Refactor auth middleware</p>
+                <p class="pr-meta">#128 opened into main</p>
+              </div>
+              <span class="pr-status">Open</span>
+            </div>
+
+            <!-- small gradient orb -->
+            <div class="glow-orb glow-orb-a"></div>
+            <div class="glow-orb glow-orb-b"></div>
+
+            <div class="grid-dust" aria-hidden="true"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FEATURES ============ -->
+    <section class="section" id="features">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Core curriculum</p>
+          <h2>Everything starts with the fundamentals</h2>
+          <p class="section-sub">Three pillars, taught the way working engineers actually use them.</p>
+        </div>
+
+        <div class="feature-grid">
+          <article class="card feature-card reveal">
+            <div class="feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <rect x="4" y="3" width="14" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M8 8H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M8 12H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M8 16H11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>Git Fundamentals</h3>
+            <p>Learn commits, staging, repositories and version control.</p>
+          </article>
+
+          <article class="card feature-card reveal">
+            <div class="feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <circle cx="6" cy="5" r="2.2" stroke="currentColor" stroke-width="1.5"/>
+                <circle cx="6" cy="19" r="2.2" stroke="currentColor" stroke-width="1.5"/>
+                <circle cx="18" cy="12" r="2.2" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M6 7.2V16.8" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M6 10.5C6 12.5 7.3 13.2 9 13.2H15.8" stroke="currentColor" stroke-width="1.5"/>
+              </svg>
+            </div>
+            <h3>Branching</h3>
+            <p>Understand feature branches without confusion.</p>
+          </article>
+
+          <article class="card feature-card reveal">
+            <div class="feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <circle cx="6" cy="6" r="2.2" stroke="currentColor" stroke-width="1.5"/>
+                <circle cx="6" cy="18" r="2.2" stroke="currentColor" stroke-width="1.5"/>
+                <circle cx="18" cy="6" r="2.2" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M6 8.2V15.8" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M6 11C6 13.5 7.5 14 9.5 14H15.8" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M15.8 14L13.6 11.8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M15.8 14L13.6 16.2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>Pull Requests</h3>
+            <p>Review, merge and collaborate like professional developers.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WORKFLOW ============ -->
+    <section class="section" id="workflow">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">The full loop</p>
+          <h2>How GitPath Works</h2>
+          <p class="section-sub">One continuous path from a blank repository to a merged, reviewed feature.</p>
+        </div>
+
+        <div class="timeline reveal">
+          <div class="timeline-track" aria-hidden="true"></div>
+
+          <div class="timeline-item">
+            <div class="timeline-node"><span>01</span></div>
+            <p class="timeline-label">Repository</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-node"><span>02</span></div>
+            <p class="timeline-label">Branch</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-node"><span>03</span></div>
+            <p class="timeline-label">Commit</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-node"><span>04</span></div>
+            <p class="timeline-label">Push</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-node"><span>05</span></div>
+            <p class="timeline-label">Pull Request</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-node"><span>06</span></div>
+            <p class="timeline-label">Review</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-node"><span>07</span></div>
+            <p class="timeline-label">Merge</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WHY GITPATH ============ -->
+    <section class="section" id="why">
+      <div class="container why-grid">
+        <div class="why-left reveal">
+          <p class="eyebrow">Why GitPath</p>
+          <h2>Built the way engineers actually learn version control</h2>
+          <p class="section-sub">
+            Not another cheat sheet. GitPath teaches the reasoning behind every command, so the workflow sticks long after the tutorial ends.
+          </p>
+          <a href="#top" class="btn btn-secondary">View Repository</a>
+        </div>
+
+        <div class="why-right">
+          <div class="reason reveal">
+            <div class="reason-index">01</div>
+            <div>
+              <h3>Real-world workflow</h3>
+              <p>Practice the same branch, commit, and PR cycle used on production engineering teams.</p>
+            </div>
+          </div>
+          <div class="reason reveal">
+            <div class="reason-index">02</div>
+            <div>
+              <h3>Project-based learning</h3>
+              <p>Every concept is anchored to a working repository, not an isolated command list.</p>
+            </div>
+          </div>
+          <div class="reason reveal">
+            <div class="reason-index">03</div>
+            <div>
+              <h3>Visual explanations</h3>
+              <p>Branch history and merges are diagrammed clearly, so the mental model forms early.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer" id="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="#top" class="logo">
+          <span class="logo-mark" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
+              <circle cx="5" cy="4" r="2.4" stroke="currentColor" stroke-width="1.5"/>
+              <circle cx="5" cy="16" r="2.4" stroke="currentColor" stroke-width="1.5"/>
+              <circle cx="15" cy="10" r="2.4" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M5 6.4V13.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M5 8.5C5 10 6 10.6 7.5 10.6H12.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </span>
+          GitPath
+        </a>
+        <p>Learn Git beautifully.</p>
+      </div>
+
+      <nav class="footer-links" aria-label="Footer">
+        <a href="#top">Home</a>
+        <a href="#features">Guides</a>
+        <a href="#workflow">Workflow</a>
+        <a href="#why">GitHub</a>
+        <a href="#footer">About</a>
+      </nav>
+
+      <a href="#" class="btn btn-secondary btn-small footer-gh">
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+          <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/>
+        </svg>
+        GitHub
+      </a>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>© 2026 GitPath. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
